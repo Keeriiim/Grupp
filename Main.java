@@ -2,24 +2,41 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Menu menu = new Menu();
         Scanner scan = new Scanner(System.in);
+
+        boolean mainMenu = true;
 
         Hero hero = null; // declare hero variable outside of the switch statement so i can recall it and get any value i need.
 
-        System.out.println("Choose ur HeroClass");
-        System.out.println("1. Warrior\n2. Warlock\n3. Hunter");
-        int choice = scan.nextInt();
+        
 
-        switch(choice){
-        case 1:
-            hero = new Warrior("Warrior", 1, 0, 120, 0, 10, 20);
-            System.out.println("You choose Warrior");
-            System.out.println(hero.toString());
-            break;
-        }
+        while(mainMenu){
+            int mainMenuChoice = menu.mainMenu(); // Få marcus åsikt om detta, är detta helt onödigt?
+            switch(mainMenuChoice){
+                case 1:
+                    switch(menu.heroMenu()){
+                        case 1:
+                           hero = new Warrior("Warrior", 1, 0, 120, 0, 20, 20);
+                           // start . game
+                        break;
 
-        System.out.println(hero.toString());
+                    } // switch heromenu
+                    break; // Belongs to case 1
+            
+                case 2:
+                    mainMenu = false;
+                    System.out.println("Game ends, good bye!\n");
+                    break; // Belongs 
+            } // Switch mainMenuChoice
 
+
+
+
+
+
+        } // While mainMenu
+        
     }
     
 }
