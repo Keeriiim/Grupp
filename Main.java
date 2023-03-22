@@ -5,6 +5,7 @@ public class Main {
         Menu menu = new Menu();
         Scanner scan = new Scanner(System.in);
         int levels = 11;
+        int choice;
 
         boolean mainMenu = true;
 
@@ -19,42 +20,38 @@ public class Main {
                     switch(menu.heroMenu()){
                         case 1:
                            // en switch som väljer vilket object den ska skapa
-                           
-                        
-                           
-                           for (int i = 1; i < 3; i++) {
-                            // monster.setAlive(true);
-                            Monster monster = new Monster(i);
-                            hero = new Warrior("Warrior", i);
-                            System.out.println("Stage " + i);
-                            monster.monsterStory();
-                            System.out.println(monster.toString() +"\n"+ hero.toString());
 
-                            while(monster.isAlive() || hero.isAlive()){
-                                if(monster.getHp() <= 0){
+                           for (int i = 1; i < 3; i++) {
+                            
+                            Monster monster = new Monster(i); // Instantiate an object of the class Monster
+                            hero = new Warrior("Warrior", i); // Instantiate an object of the class Hero & choosen subclass Warror / Warlock
+                            System.out.println("******************* Stage " + i + " *******************"); // Prints the stage your at in the dungeon
+                            monster.monsterStory(); // Prints 1 of 3 texts when the monster appears
+                            System.out.println(monster.toString() +"\n"+ hero.toString()+"\n\n"); // Prints all stats for the monster & hero before the battle begins
+
+                            while(monster.isAlive() || hero.isAlive()){ // A loop to continue the battle until either the hero or the monster is dead.
+
+                                if(monster.getHp() <= 0){ // Check's if the monster has died
                                     System.out.println("Monster is dead, let's keep moving");
                                     monster.setAlive(false);
                                     System.out.println("! Hero level up !");
                                     break;
                                 }
-                                else if(hero.getHp() <= 0){
+
+                                System.out.println("Monster attacks you for " + monster.getAttack() + " damage");
+                                monster.monsterAttack();
+                                hero.setHp(-(monster.getAttack()));
+                                System.out.println("Hero hp: " + hero.getHp()+"\n");
+
+                                if(hero.getHp() <= 0){ // Check's if the Hero has died
                                     hero.setDead();
                                     System.out.println("! Hero level up !");
                                     break;
                                 }
 
-
-                                else
-                                System.out.println("Monster attacks you for " + monster.getAttack() + " damage");
-                                hero.setHp(-(monster.getAttack()));
-                                
-
-                                System.out.println(hero.getChoosenHero() + " attacks..." + hero.attackSound() + " with " + hero.getAttack() + " damage");
-                                monster.setHp(-(hero.getAttack()));
-                                System.out.println("Hero hp: " + hero.getHp());
-                                System.out.println("Monster hp: " + monster.getHp());
+                                hero.spellOption(monster); // Print's the abilities of the hero class to choose between and updates monster hp
+                                System.out.println("Monster hp: " + monster.getHp()+"\n");
                                
-                                System.out.println("");
                             }
 
                             if(!(hero.isAlive())){ // Ends the game if the hero dies and returns the user back to main menu
@@ -62,17 +59,16 @@ public class Main {
                                 break;
                             }
                             System.out.println("\n\n\n");
-                            monster.setLvl(1);
-                            hero.setLvl(1);
+                            monster.setLvl(1); // Adds another level at the end of each finished stage for scaling
+                            hero.setLvl(1);  // Adds another level at the end of each finished stage for scaling
                           
-                            
 
                             
                            }
-                        break;
-
+                        break; // Belongs to case 1 in heromenu
                     } // switch heromenu
-                    break; // Belongs to case 1
+
+                break; // Belongs to case 1 mainmenuchoice
             
                 case 2:
                     mainMenu = false;
@@ -85,10 +81,6 @@ public class Main {
 
 
 
-        } // While mainMenu
-        
-    }
-
-  
-    
-}
+        } // While mainMenu scope 
+    }   // main scope
+} // class schope

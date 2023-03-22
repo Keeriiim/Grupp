@@ -49,6 +49,23 @@ public class Hero {
             return alive;
         }
 
+        public void spellOption(Monster monster){
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         /**
          * @return the lvl
          */

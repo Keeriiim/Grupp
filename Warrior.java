@@ -1,4 +1,6 @@
+import java.util.Scanner;
 public class Warrior extends Hero{
+    Scanner scan = new Scanner(System.in);
    
     public Warrior(){}
 
@@ -14,8 +16,32 @@ public class Warrior extends Hero{
     }
 
     public String attackSound(){
-        return "Slaaaaaaaash !!";
+        return "******* Slaaaaaaaash *******";
     }
+
+    public void spellOption(Monster monster){
+        int damage = 0;
+        System.out.println("-- !!! Your time to attack !!! --");
+        System.out.println("1. Normal attack\n2. Slashing through my foes");;
+        System.out.print("Your choice: ");
+        int choice = scan.nextInt();
+        System.out.println("");
+
+        switch(choice){ // Attacks the monster depending on the choosen spellattack
+            case 1:
+            System.out.println(getChoosenHero() + " attacks with " + getAttack() + " damage");
+            System.out.println(attackSound());
+            monster.setHp(-(getAttack()));
+            break;
+
+            case 2:
+            System.out.println(getChoosenHero() + " Double Attacks with " + 2*(getAttack()) + " damage");
+            System.out.println(attackSound());
+            monster.setHp(-2*(getAttack()));
+
+        }         
+    }
+
 
 
 }

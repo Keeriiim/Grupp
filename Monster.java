@@ -14,7 +14,7 @@ public class Monster{
     public Monster(int lvl){
         this.lvl = lvl;
         this.hp = 15 + (lvl * 14);
-        this.attack = 200 + (2*lvl);
+        this.attack = 40 + (2*lvl);
         this.defense = 2 + (2*lvl);
         this.xp = 10 * (10*lvl);
         this.alive = true;
@@ -159,27 +159,25 @@ public class Monster{
         int random = rand.nextInt(3)+1;
         switch(random){
             case 1:
-            System.out.println("A terrible creature has spawned, beware !!!");
+            System.out.println("A terrible creature has spawned, beware !!!\n");
             break;
             case 2:
-            System.out.println("hold your horses, we got some company !!");
+            System.out.println("hold your horses, we got some company !!\n");
             break;
             case 3:
-            System.out.println("MONSTER AAAAAAAAAAAH !!!");
+            System.out.println("MONSTER AAAAAAAAAAAH !!!\n");
         }
     }
 
         public void monsterAttack(){
-            int random = rand.nextInt(3)+1;
+            int random = rand.nextInt(2)+1;
         switch(random){
             case 1:
-            System.out.println("CLAW");
+            System.out.println("******* CLAW *******");
             break;
             case 2:
-            System.out.println("BAAM");
+            System.out.println("******* SCRATCH *******");
             break;
-            case 3:
-            System.out.println("MONSTER AAAAAAAAAAAH !!!");
         }
     }
 
@@ -187,23 +185,4 @@ public class Monster{
     public String toString(){ // Values to be printed every level and every round to update
         return "Monster:\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
     }
-
-
-
-
-
-
-
-    
-
-
-
-
-    /*public int levelONe(){
-        System.out.println("Level 1");
-        System.out.println("A small creature appears in the dark alley");
-
-
-        return;
-    }*/
 }

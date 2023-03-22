@@ -15,7 +15,7 @@ public class Menu {
     }
 
     public int heroMenu(){
-        System.out.println("Choose your hero:\n1.Warrior");
+        System.out.println("\n\n\nChoose your hero:\n1.Warrior");
         warrior.printDefaultStatsAndAttacks();
         System.out.println("\n2.Warlock ------");
         System.out.println("");
