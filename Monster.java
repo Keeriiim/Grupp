@@ -11,12 +11,21 @@ public class Monster{
 
 
 
-    public Monster(){
-        this.lvl = 1;
-        this.hp = 20;
-        this.attack = 5;
-        this.defense = 2;
-        this.xp = 10;
+    public Monster(int lvl){
+        this.lvl = lvl;
+        this.hp = 15 + (lvl * 14);
+        this.attack = 5 + (2*lvl);
+        this.defense = 2 + (2*lvl);
+        this.xp = 10 * (10*lvl);
+        this.alive = true;
+    }
+
+    public Monster(int lvl, int hp, int attack, int defense, int xp, boolean alive){
+        this.lvl = lvl;
+        this.hp = hp;
+        this.attack = attack;
+        this.defense = defense;
+        this.xp = xp;
         this.alive = true;
     }
 
@@ -33,7 +42,7 @@ public class Monster{
      * @param lvl the lvl to set
      */
     public void setLvl(int lvl) {
-        this.lvl = lvl;
+        this.lvl += lvl;
     }
 
     /**
@@ -49,7 +58,7 @@ public class Monster{
      * @param hp the hp to set
      */
     public void setHp(int hp) {
-        this.hp = hp;
+        this.hp += hp;
     }
 
 
@@ -69,7 +78,7 @@ public class Monster{
      * @param attack the attack to set
      */
     public void setAttack(int attack) {
-        this.attack = attack;
+        this.attack += attack;
     }
 
 
@@ -87,7 +96,7 @@ public class Monster{
      * @param defense the defense to set
      */
     public void setDefense(int defense) {
-        this.defense = defense;
+        this.defense += defense;
     }
 
 
@@ -105,7 +114,7 @@ public class Monster{
      * @param xp the xp to set
      */
     public void setXp(int xp) {
-        this.xp = xp;
+        this.xp += xp;
     }
 
 
@@ -176,7 +185,7 @@ public class Monster{
 
 
     public String toString(){ // Values to be printed every level and every round to update
-        return "Monster:\nlvl = " + lvl + "\n hp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
+        return "Monster:\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
     }
 
 

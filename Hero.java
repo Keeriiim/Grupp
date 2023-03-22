@@ -4,20 +4,31 @@ public class Hero {
         private int xp;
         private int hp;
         private int mana;
-        private int damage;
+        private int attack;
         private int defense;
+        private boolean alive = true;
     
     
         public Hero(){}
     
-        public Hero(String choosenHero, int lvl, int xp, int hp, int mana, int damage, int defense){
+        public Hero(String choosenHero, int lvl, int xp, int hp, int mana, int attack, int defense){
             this.choosenHero = choosenHero;
             this.lvl = lvl;
             this.xp = xp;
             this.hp = hp;
             this.mana = mana;
-            this.damage = damage;
+            this.attack = attack;
             this.defense = defense;
+        }
+
+        public Hero(String choosenHero, int lvl){
+            this.choosenHero = choosenHero;
+            this.lvl = lvl;
+            this.hp = 120 + (lvl * 5);
+            this.attack = 6 + (4*lvl);
+            this.defense = 20 + (2*lvl);
+            this.xp = 10 * (10*lvl);
+            this.alive = true;
         }
 
         /**
@@ -45,7 +56,7 @@ public class Hero {
          * @param lvl the lvl to set
          */
         public void setLvl(int lvl) {
-            this.lvl = lvl;
+            this.lvl += lvl;
         }
 
         /**
@@ -59,7 +70,7 @@ public class Hero {
          * @param xp the xp to set
          */
         public void setXp(int xp) {
-            this.xp = xp;
+            this.xp += xp;
         }
 
         /**
@@ -87,21 +98,21 @@ public class Hero {
          * @param mana the mana to set
          */
         public void setMana(int mana) {
-            this.mana = mana;
+            this.mana += mana;
         }
 
         /**
          * @return the damage
          */
-        public int getDamage() {
-            return damage;
+        public int getAttack() {
+            return attack;
         }
 
         /**
          * @param damage the damage to set
          */
-        public void setDamage(int damage) {
-            this.damage = damage;
+        public void setAttack(int attack) {
+            this.attack += attack;
         }
 
         /**
@@ -115,7 +126,7 @@ public class Hero {
          * @param defense the defense to set
          */
         public void setDefense(int defense) {
-            this.defense = defense;
+            this.defense += defense;
         }
 
         public String attackSound(){
@@ -124,8 +135,7 @@ public class Hero {
 
         @Override
         public String toString() {
-            return "Hero [choosenHero=" + choosenHero + ", lvl=" + lvl + ", xp=" + xp + ", hp=" + hp + ", mana=" + mana
-                    + ", damage=" + damage + ", defense=" + defense + "]";
+            return "Hero:\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
         }
 
         

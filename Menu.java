@@ -22,6 +22,7 @@ public class Menu {
         System.out.println("");
         System.out.print("Your choice: ");
         int choice = scan.nextInt();
+        System.out.println("");
         return choice;
     }
     
