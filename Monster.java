@@ -175,7 +175,7 @@ public class Monster{
     }
 
 
-    public String toString() {
+    public String toString(){ // Values to be printed every level and every round to update
         return "Monster:\nlvl = " + lvl + "\n hp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
     }
 

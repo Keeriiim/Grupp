@@ -26,16 +26,22 @@ public class Main {
                             System.out.println("Level " + i);
                             monster.monsterStory();
                             System.out.println(monster.toString());
+
                             while(monster.isAlive()){
                                 if(monster.getHp()<= 0){
                                     System.out.println("Monster is dead, let's keep moving");
                                     monster.setAlive(false);
                                 }
+
+
                                 else
                                 System.out.println("Monster attacks you for " + monster.getAttack() + " damage");
+                                System.out.println(hero.getHp());
                                 hero.setHp(-(monster.getAttack()));
+                                System.out.println(hero.getHp());
+                                
                                 System.out.println(hero.getChoosenHero() + " attacks..." + hero.attackSound());
-                                hero.setHp(levels);monster.getAttack();
+                               
                                 System.out.println("");
                                 break;
                             }
