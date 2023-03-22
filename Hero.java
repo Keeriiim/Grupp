@@ -10,16 +10,6 @@ public class Hero {
     
     
         public Hero(){}
-    
-        public Hero(String choosenHero, int lvl, int xp, int hp, int mana, int attack, int defense){
-            this.choosenHero = choosenHero;
-            this.lvl = lvl;
-            this.xp = xp;
-            this.hp = hp;
-            this.mana = mana;
-            this.attack = attack;
-            this.defense = defense;
-        }
 
         public Hero(String choosenHero, int lvl){
             this.choosenHero = choosenHero;
@@ -43,6 +33,20 @@ public class Hero {
          */
         public void setChoosenHero(String choosenHero) {
             this.choosenHero = choosenHero;
+        }
+
+        public boolean setAlive(){
+            this.alive = true;
+            return alive;
+        }
+
+        public boolean setDead(){
+            this.alive = false;
+            return alive;
+        }
+
+        public boolean isAlive(){
+            return alive;
         }
 
         /**

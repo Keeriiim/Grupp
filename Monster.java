@@ -14,7 +14,7 @@ public class Monster{
     public Monster(int lvl){
         this.lvl = lvl;
         this.hp = 15 + (lvl * 14);
-        this.attack = 5 + (2*lvl);
+        this.attack = 200 + (2*lvl);
         this.defense = 2 + (2*lvl);
         this.xp = 10 * (10*lvl);
         this.alive = true;

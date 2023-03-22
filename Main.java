@@ -22,7 +22,7 @@ public class Main {
                            
                         
                            
-                           for (int i = 1; i < 5; i++) {
+                           for (int i = 1; i < 3; i++) {
                             // monster.setAlive(true);
                             Monster monster = new Monster(i);
                             hero = new Warrior("Warrior", i);
@@ -30,10 +30,15 @@ public class Main {
                             monster.monsterStory();
                             System.out.println(monster.toString() +"\n"+ hero.toString());
 
-                            while(monster.isAlive()){
-                                if(monster.getHp()<= 0){
+                            while(monster.isAlive() || hero.isAlive()){
+                                if(monster.getHp() <= 0){
                                     System.out.println("Monster is dead, let's keep moving");
                                     monster.setAlive(false);
+                                    System.out.println("! Hero level up !");
+                                    break;
+                                }
+                                else if(hero.getHp() <= 0){
+                                    hero.setDead();
                                     System.out.println("! Hero level up !");
                                     break;
                                 }
@@ -51,18 +56,15 @@ public class Main {
                                
                                 System.out.println("");
                             }
+
+                            if(!(hero.isAlive())){ // Ends the game if the hero dies and returns the user back to main menu
+                                System.out.println("Game Over!\n\n");
+                                break;
+                            }
                             System.out.println("\n\n\n");
                             monster.setLvl(1);
                             hero.setLvl(1);
-                          /*   monster.setLvl(1);
-                            monster.setHp(25);
-                            monster.setAttack(5);
-                            monster.setDefense(2);
-                            hero.setLvl(1);
-                            hero.setHp(20);
-                            hero.setAttack(5);
-                            hero.setDefense(2);
-                            */
+                          
                             
 
                             

@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Menu {
     Scanner scan = new Scanner(System.in);
-    Warrior warrior = new Warrior();    ;
+    Warrior warrior = new Warrior(); 
 
     public Menu(){
 
