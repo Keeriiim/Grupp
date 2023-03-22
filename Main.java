@@ -38,10 +38,8 @@ public class Main {
                                     break;
                                 }
 
-                                System.out.println("Monster attacks you for " + monster.getAttack() + " damage");
-                                monster.monsterAttack();
-                                hero.setHp(-(monster.getAttack()));
-                                System.out.println("Hero hp: " + hero.getHp()+"\n");
+                                monster.monsterAttack(hero); // Randomly chooses an attack, a text output and updates hero hp
+                                System.out.println("Hero hp: " + hero.getHp()+"\n\n\n");
 
                                 if(hero.getHp() <= 0){ // Check's if the Hero has died
                                     hero.setDead();
@@ -50,7 +48,7 @@ public class Main {
                                 }
 
                                 hero.spellOption(monster); // Print's the abilities of the hero class to choose between and updates monster hp
-                                System.out.println("Monster hp: " + monster.getHp()+"\n");
+                                System.out.println("Monster hp: " + monster.getHp()+"\n\n\n");
                                
                             }
 

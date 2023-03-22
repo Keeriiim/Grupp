@@ -138,21 +138,6 @@ public class Monster{
 
     
 
-    /**
-     * @return the rand
-     */
-    public Random getRand() {
-        return rand;
-    }
-
-
-
-    /**
-     * @param rand the rand to set
-     */
-    public void setRand(Random rand) {
-        this.rand = rand;
-    }
 
 
     public void monsterStory(){
@@ -169,14 +154,20 @@ public class Monster{
         }
     }
 
-        public void monsterAttack(){
+
+        public void monsterAttack(Hero hero){
             int random = rand.nextInt(2)+1;
         switch(random){
             case 1:
+            System.out.println("Monster attacks you for " + getAttack() + " damage");
             System.out.println("******* CLAW *******");
+            hero.setHp(-(getAttack()));
             break;
+            
             case 2:
+            System.out.println("Monster attacks you for " + (getAttack()-5) + " damage");
             System.out.println("******* SCRATCH *******");
+            hero.setHp(-(getAttack()-5));
             break;
         }
     }

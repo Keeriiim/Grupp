@@ -20,7 +20,6 @@ public class Warrior extends Hero{
     }
 
     public void spellOption(Monster monster){
-        int damage = 0;
         System.out.println("-- !!! Your time to attack !!! --");
         System.out.println("1. Normal attack\n2. Slashing through my foes");;
         System.out.print("Your choice: ");
