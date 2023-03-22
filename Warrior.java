@@ -13,5 +13,9 @@ public class Warrior extends Hero{
         System.out.println("Hp = 120\nAttack = 20\nDefense = 20");
     }
 
+    public String attackSound(){
+        return "Slaaaaaaaash !!";
+    }
+
 
 }

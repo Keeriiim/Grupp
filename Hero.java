@@ -73,7 +73,7 @@ public class Hero {
          * @param hp the hp to set
          */
         public void setHp(int hp) {
-            this.hp = hp;
+            this.hp += hp;
         }
 
         /**
@@ -116,6 +116,10 @@ public class Hero {
          */
         public void setDefense(int defense) {
             this.defense = defense;
+        }
+
+        public String attackSound(){
+            return "";
         }
 
         @Override
