@@ -14,8 +14,8 @@ public class Hero {
         public Hero(String choosenHero, int lvl){
             this.choosenHero = choosenHero;
             this.lvl = lvl;
-            this.hp = 120 + (lvl * 5);
-            this.attack = 6 + (4*lvl);
+            this.hp = 220 + (lvl * 5);
+            this.attack = 66 + (4*lvl);
             this.defense = 20 + (2*lvl);
             this.xp = 10 * (10*lvl);
             this.alive = true;
@@ -52,16 +52,6 @@ public class Hero {
         public void spellOption(Monster monster){
 
         }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -156,7 +146,7 @@ public class Hero {
 
         @Override
         public String toString() {
-            return "Hero:\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
+            return getChoosenHero()+":\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
         }
 
         

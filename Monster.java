@@ -1,6 +1,7 @@
 import java.util.Random;
 
 public class Monster{
+    private String creature;
     private int lvl;
     private int hp;
     private int attack;
@@ -11,23 +12,23 @@ public class Monster{
 
 
 
-    public Monster(int lvl){
+    public Monster(){}
+
+    public Monster(String creature, int lvl){
+        this.creature = creature;
         this.lvl = lvl;
         this.hp = 15 + (lvl * 14);
-        this.attack = 40 + (2*lvl);
+        this.attack = 25 + (2*lvl);
         this.defense = 2 + (2*lvl);
         this.xp = 10 * (10*lvl);
         this.alive = true;
     }
 
-    public Monster(int lvl, int hp, int attack, int defense, int xp, boolean alive){
-        this.lvl = lvl;
-        this.hp = hp;
-        this.attack = attack;
-        this.defense = defense;
-        this.xp = xp;
-        this.alive = true;
+
+    public String getName(){
+        return creature;
     }
+
 
  /**
      * @return the lvl
@@ -163,7 +164,7 @@ public class Monster{
             System.out.println("******* CLAW *******");
             hero.setHp(-(getAttack()));
             break;
-            
+
             case 2:
             System.out.println("Monster attacks you for " + (getAttack()-5) + " damage");
             System.out.println("******* SCRATCH *******");
@@ -174,6 +175,6 @@ public class Monster{
 
 
     public String toString(){ // Values to be printed every level and every round to update
-        return "Monster:\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
+        return creature + ":\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
     }
 }
