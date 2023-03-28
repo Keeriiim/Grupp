@@ -7,6 +7,7 @@ public class Hero {
         private int attack;
         private int defense;
         private boolean alive = true;
+        private int gold;
     
     
         public Hero(){}
@@ -19,6 +20,7 @@ public class Hero {
             this.defense = 20 + (2*lvl);
             this.xp = 10 * (10*lvl);
             this.alive = true;
+            this.gold = 1*(100*lvl);
         }
 
         /**
