@@ -41,6 +41,10 @@ public class Main {
 
 
 
+                               
+
+
+
 
                                System.out.println("******************* Stage " + i + " *******************"); // Prints the stage your at in the dungeon                
                                
@@ -112,7 +116,7 @@ public class Main {
                                 monster.setLvl(1); // Adds another level at the end of each finished stage for scaling
                                 hero.setLvl(1);  // Adds another level at the end of each finished stage for scaling
                                 hero.setGold(100);
-                                System.out.println("Gold: hero.getGold()");
+                                System.out.println("Gold: " + hero.getGold());
                            } // end scope of Stages
                         break; // Belongs to case 1 in heromenu
                     } // switch heromenu
