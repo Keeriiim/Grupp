@@ -1,31 +1,132 @@
 import java.util.Scanner;
 
-public class shop {
+public class Shop {
     Scanner scan = new Scanner(System.in);
     private int choice;
+    private int secondChoice;
+    private int itemChoice;
     private boolean shopMenu;
+    Hero hero;
 
 
-    public shop(){}
+    public Shop(){
+        
+    }
+    public Shop(Hero hero){
+        this.hero = hero;
+    }
 
 
 
     public void shopMenu(){
         this.shopMenu = true;
         while(shopMenu){
-        System.out.println("! Welcome to the secret shop !");
-        System.out.println("1.Shop\n2.exit\n");
+        System.out.println("\n! Welcome to the secret shop !");
+        System.out.println("1.Shop\n2.exit");
         System.out.print("Your choice: ");
         this.choice = scan.nextInt();
 
         switch(choice){
             case 1:
+            System.out.println("\n1.Weapon\n2.Health");
+            System.out.print("Your choice: ");
+            secondChoice = scan.nextInt();
+            switch(secondChoice){
+                case 1:
+                System.out.println("\n1.Axe (+15 attack)\n2.Staff (+15 attack)");
+                System.out.print("Your choice: ");
+                itemChoice = scan.nextInt();
+                switch(itemChoice){
+                    case 1:
+                       if(hero.inventory.contains("Axe") == true){
+                          System.out.println("Item already in your inventory\n");
+                       }
+                       else{
+                        if(hero.getGold()>50){
+                            hero.setGold(-50);
+                            System.out.println("You just bought an Axe for 50 gold");
+                            hero.inventory.add("Axe");
+                            System.out.println("Gold left: " + hero.getGold());
+                        }
+                        else {
+                            System.out.println("Not enough gold !");
+                            System.out.println("Axe cost: 50 gold");
+                            System.out.println("Hero Gold: " + hero.getGold());
+                        }
+                       }
+                    break;
+
+                    case 2:
+                    if(hero.inventory.contains("Staff")){
+                        System.out.println("Item already in your inventory\n\n");
+                     }
+                     else{
+                        if(hero.getGold()>50){
+                            hero.setGold(-50);
+                            System.out.println("You just bought a Staff for 50 gold");
+                            hero.inventory.add("Staff");
+                            System.out.println("Gold left: " + hero.getGold());
+                        }
+                        else {
+                            System.out.println("Not enough gold !");
+                            System.out.println("Staff cost: 50 gold");
+                            System.out.println("Hero Gold: " + hero.getGold());
+                        }
+                     }
+                    break;
+                }
+                break; // break for case 1 secondChoice
+
+                case 2:
+                System.out.println("\n1.Armor (+25 hp)\n2.Robe (+25 hp)");
+                System.out.print("Your choice: ");
+                itemChoice = scan.nextInt();
+                switch(itemChoice){
+                    case 1:
+                       if(hero.inventory.contains("Armor") == true){
+                          System.out.println("Item already in your inventory\n");
+                       }
+                       else{
+                        if(hero.getGold()>50){
+                            hero.setGold(-50);
+                            System.out.println("You just bought an Armor for 50 gold");
+                            hero.inventory.add("Armor");
+                            System.out.println("Gold left: " + hero.getGold());
+                        }
+                        else {
+                            System.out.println("Not enough gold !");
+                            System.out.println("Armor cost: 50 gold");
+                            System.out.println("Hero Gold: " + hero.getGold());
+                        }                     
+                       }
+                    break;
+
+                    case 2:
+                    if(hero.inventory.contains("Robe")){
+                        System.out.println("Item already in your inventory\n\n");
+                     }
+                     else{
+                        if(hero.getGold()>50){
+                            hero.setGold(-50);
+                            System.out.println("You just bought a Robe for 50 gold");
+                            hero.inventory.add("Robe");
+                            System.out.println("Gold left: " + hero.getGold());
+                        }
+                        else {
+                            System.out.println("Not enough gold !");
+                            System.out.println("Robe cost: 50 gold");
+                            System.out.println("Hero Gold: " + hero.getGold());
+                        }
+                     }
+                    break;
+                }
+                break;
+            }
 
             break;
-
-
+       
             case 2:
-            System.out.println("See you next time!");
+            System.out.println("See you next time!\n\n\n");
             this.shopMenu = false;
             break;
         }

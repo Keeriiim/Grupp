@@ -3,13 +3,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Menu menu = new Menu();
-        Scanner scan = new Scanner(System.in);
-        int levels = 11;
-        int choice;
-
         boolean mainMenu = true;
 
-        Hero hero = null; // declare hero variable outside of the switch statement so i can recall it and get any value i need.
+        Hero hero = null; // instantiates a hero object.
+        Monster monster = null; // instantiates a monster object.
+        Shop shop = null; // instantiates a shop object.
 
         
 
@@ -22,9 +20,23 @@ public class Main {
                            // en switch som väljer vilket object den ska skapa
 
                            for (int i = 1; i < 11; i++) { // Set's the amout of total stages
-                               Monster monster = new Monster("Monster",i); // Instantiate an object of the class Monster
+                               monster = new Monster("Monster",i); // Instantiate an object of the class Monster
                                hero = new Warrior("Warrior", i); // Instantiate an object of the class Hero & choosen subclass Warror / Warlock
+                               shop = new Shop(hero);
+
+                               shop.shopMenu();
+                               if(hero.inventory.contains("Axe")||hero.inventory.contains("Staff")){ // Checks hero inventory if a staff or axe item is present, if it is adds 15 to attack
+                                hero.setAttack(15);
+                               }
+
+                               if(hero.inventory.contains("Armor")||hero.inventory.contains("Robe")){ // Checks hero inventory if an Armor or a robe item is present, if it is adds 25 to health
+                                hero.setHp(25);
+                               }
+
                                System.out.println("******************* Stage " + i + " *******************"); // Prints the stage your at in the dungeon
+                               
+                               
+                               // if()hero.setAttack(10000);
                                
                                
                                if(i== 5 || i == 10){
@@ -53,6 +65,7 @@ public class Main {
                                     System.out.println(boss.getName() + " hp: " + boss.getHp()+"\n\n\n");
 
                                     }
+                                    
                                 continue;
                                }
 
@@ -93,6 +106,7 @@ public class Main {
                                 System.out.println("\n");
                                 monster.setLvl(1); // Adds another level at the end of each finished stage for scaling
                                 hero.setLvl(1);  // Adds another level at the end of each finished stage for scaling
+                                hero.setGold(100);
                            } // end scope of Stages
                         break; // Belongs to case 1 in heromenu
                     } // switch heromenu

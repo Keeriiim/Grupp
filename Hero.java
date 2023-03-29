@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Hero {
         private String choosenHero;
         private int lvl;
@@ -6,8 +7,11 @@ public class Hero {
         private int mana;
         private int attack;
         private int defense;
+        private boolean attackPassive = false;
+        private boolean hpPassive = false;
         private boolean alive = true;
         private int gold;
+        ArrayList <String> inventory = new ArrayList<>();
     
     
         public Hero(){}
@@ -16,11 +20,11 @@ public class Hero {
             this.choosenHero = choosenHero;
             this.lvl = lvl;
             this.hp = 220 + (lvl * 5);
-            this.attack = 66 + (4*lvl);
+            this.attack = 46 + (4*lvl);
             this.defense = 20 + (2*lvl);
             this.xp = 10 * (10*lvl);
             this.alive = true;
-            this.gold = 1*(100*lvl);
+            this.gold = 0;
         }
 
         /**
@@ -53,6 +57,24 @@ public class Hero {
 
         public void spellOption(Monster monster){
 
+        }
+
+
+        public boolean getAttackPassive(){
+            return attackPassive;
+        }
+
+        public void setAttackPassive(){
+            this.attackPassive = true;
+            // return attackPassive;
+        }
+
+        public int getGold(){
+            return this.gold;
+        }
+
+        public void setGold(int gold){
+             this.gold = gold;
         }
 
 
