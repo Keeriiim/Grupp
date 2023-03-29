@@ -15,16 +15,22 @@ public class Main {
             int mainMenuChoice = menu.mainMenu(); // Få marcus åsikt om detta, är detta helt onödigt?
             switch(mainMenuChoice){
                 case 1:
-                    switch(menu.heroMenu()){
+                int heroMenuChoice = menu.heroMenu();
+                    switch(1){
                         case 1:
-                           // en switch som väljer vilket object den ska skapa
-
                            for (int i = 1; i < 11; i++) { // Set's the amout of total stages
-                               monster = new Monster("Monster",i); // Instantiate an object of the class Monster
-                               hero = new Warrior("Warrior", i); // Instantiate an object of the class Hero & choosen subclass Warror / Warlock
-                               shop = new Shop(hero);
-
-                               shop.shopMenu();
+                               monster = new Monster("Monster",i); // Instantiates an object of the class Monster
+                               
+                               if(heroMenuChoice == 1){ // Instantiates an object of the class Hero & choosen subclass Warror
+                                  hero = new Warrior("Warrior", i);
+                               }
+                               else if(heroMenuChoice == 2){ // Instantiates an object of the class Hero & choosen subclass Warlock
+                                  hero = new Warlock("Warlock", i);
+                               } 
+                               
+                              
+                               shop = new Shop(hero); // Instantiates an object of the class shop and takes the hero object as a parameter
+                               shop.shopMenu(); // Enters the shop menu
                                if(hero.inventory.contains("Axe")||hero.inventory.contains("Staff")){ // Checks hero inventory if a staff or axe item is present, if it is adds 15 to attack
                                 hero.setAttack(15);
                                }
@@ -33,15 +39,14 @@ public class Main {
                                 hero.setHp(25);
                                }
 
-                               System.out.println("******************* Stage " + i + " *******************"); // Prints the stage your at in the dungeon
+
+
+
+                               System.out.println("******************* Stage " + i + " *******************"); // Prints the stage your at in the dungeon                
                                
-                               
-                               // if()hero.setAttack(10000);
-                               
-                               
-                               if(i== 5 || i == 10){
+                               if(i== 5 || i == 10){ // Algoritm to check if it is time for a boss fight
                                     System.out.println("********** BOSS FIGHT **********");
-                                    Monster boss = new Boss("Dragon",i);
+                                    Monster boss = new Boss("Dragon",i); // Instantiates a second object Monster with the subclass boss 
 
                                     while(boss.isAlive() || hero.isAlive()){ // A loop to continue the battle until either the hero or the Dragon is dead.
                                         if(boss.getHp() <= 0){ // Check's if the boss has died
@@ -107,11 +112,15 @@ public class Main {
                                 monster.setLvl(1); // Adds another level at the end of each finished stage for scaling
                                 hero.setLvl(1);  // Adds another level at the end of each finished stage for scaling
                                 hero.setGold(100);
+                                System.out.println("Gold: hero.getGold()");
                            } // end scope of Stages
                         break; // Belongs to case 1 in heromenu
                     } // switch heromenu
 
                 break; // Belongs to case 1 mainmenuchoice
+
+
+
             
                 case 2:
                     mainMenu = false;

@@ -2,6 +2,8 @@ import java.util.Scanner;
 public class Menu {
     Scanner scan = new Scanner(System.in);
     Warrior warrior = new Warrior(); 
+    Warlock warlock = new Warlock();
+    
 
     public Menu(){
 
@@ -17,8 +19,8 @@ public class Menu {
     public int heroMenu(){
         System.out.println("\n\n\nChoose your hero:\n1.Warrior");
         warrior.printDefaultStatsAndAttacks();
-        System.out.println("\n2.Warlock ------");
-        System.out.println("");
+        System.out.println("\n2.Warlock ");
+        warlock.printDefaultStatsAndAttacks();
         System.out.println("");
         System.out.print("Your choice: ");
         int choice = scan.nextInt();
