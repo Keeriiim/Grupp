@@ -8,15 +8,30 @@ public class Menu {
     public Menu(){}
 
     public int mainMenu(){
-        System.out.println("1.Start Game\n2.Quit");
-        System.out.print("Your choice: ");
-        int choice;
-        do{
-            System.out.println("");
+        System.out.println("Welcome to the best RPG Game");
+        System.out.println("1. Start Game");
+        System.out.println("2. Quit");
+        System.out.print("Enter your choice (1 or 2): ");
+        
+        int choice = 0;
+        while (true) {
+            if (!scan.hasNextInt()) {
+                System.out.println("Invalid input! Please enter a number (1 or 2):");
+                scan.next(); // discard invalid input
+                continue;
+            }
             choice = scan.nextInt();
+            switch (choice) {
+                case 1:
+                    System.out.println("Starting new game...");
+                    return choice;
+                case 2:
+                    System.out.println("Goodbye!");
+                    return choice;
+                default:
+                    System.out.println("Invalid choice! Please enter 1 or 2:");
+            }
         }
-        while(choice == 1 || choice == 2);
-        return choice;
     }
 
     public int heroMenu(){
