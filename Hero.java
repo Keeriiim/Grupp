@@ -4,7 +4,6 @@ public class Hero {
         private int lvl;
         private int xp;
         private int hp;
-        private int mana;
         private int attack;
         private int defense;
         private boolean attackPassive = false;
@@ -27,20 +26,14 @@ public class Hero {
             this.gold = 0;
         }
 
-        /**
-         * @return the choosenHero
-         */
         public String getChoosenHero() {
             return choosenHero;
         }
 
-        /**
-         * @param choosenHero the choosenHero to set
-         */
-        public void setChoosenHero(String choosenHero) {
-            this.choosenHero = choosenHero;
+        public boolean isAlive(){
+            return alive;
         }
-
+        
         public boolean setAlive(){
             this.alive = true;
             return alive;
@@ -51,22 +44,27 @@ public class Hero {
             return alive;
         }
 
-        public boolean isAlive(){
-            return alive;
+      
+        public int getAttack() {
+            return attack;
         }
 
-        public void spellOption(Monster monster){
-
+       
+        public void setAttack(int attack) {
+            this.attack += attack;
+        }
+    
+        public int getHp() {
+            return hp;
         }
 
-
-        public boolean getAttackPassive(){
-            return attackPassive;
+      
+        public void setHp(int hp) {
+            this.hp += hp;
         }
 
-        public void setAttackPassive(){
-            this.attackPassive = true;
-            // return attackPassive;
+        public void setLvl(int lvl) {
+            this.lvl += lvl;
         }
 
         public int getGold(){
@@ -77,94 +75,23 @@ public class Hero {
              this.gold = gold;
         }
 
-
-
-
-        /**
-         * @return the lvl
-         */
-        public int getLvl() {
-            return lvl;
+        public boolean getAttackPassive(){
+            return attackPassive;
         }
 
-        /**
-         * @param lvl the lvl to set
-         */
-        public void setLvl(int lvl) {
-            this.lvl += lvl;
+        public void setAttackPassive(){
+            this.attackPassive = true;
+        
         }
 
-        /**
-         * @return the xp
-         */
-        public int getXp() {
-            return xp;
+       
+    
+
+        public void spellOption(Monster monster){
+
         }
 
-        /**
-         * @param xp the xp to set
-         */
-        public void setXp(int xp) {
-            this.xp += xp;
-        }
-
-        /**
-         * @return the hp
-         */
-        public int getHp() {
-            return hp;
-        }
-
-        /**
-         * @param hp the hp to set
-         */
-        public void setHp(int hp) {
-            this.hp += hp;
-        }
-
-        /**
-         * @return the mana
-         */
-        public int getMana() {
-            return mana;
-        }
-
-        /**
-         * @param mana the mana to set
-         */
-        public void setMana(int mana) {
-            this.mana += mana;
-        }
-
-        /**
-         * @return the damage
-         */
-        public int getAttack() {
-            return attack;
-        }
-
-        /**
-         * @param damage the damage to set
-         */
-        public void setAttack(int attack) {
-            this.attack += attack;
-        }
-
-        /**
-         * @return the defense
-         */
-        public int getDefense() {
-            return defense;
-        }
-
-        /**
-         * @param defense the defense to set
-         */
-        public void setDefense(int defense) {
-            this.defense += defense;
-        }
-
-        public String attackSound(){
+        public String printAttackSound(){
             return "";
         }
 

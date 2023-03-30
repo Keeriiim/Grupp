@@ -5,14 +5,17 @@ public class Menu {
     Warlock warlock = new Warlock();
     
 
-    public Menu(){
-
-    }
+    public Menu(){}
 
     public int mainMenu(){
         System.out.println("1.Start Game\n2.Quit");
         System.out.print("Your choice: ");
-        int choice = scan.nextInt();
+        int choice;
+        do{
+            System.out.println("");
+            choice = scan.nextInt();
+        }
+        while(choice == 1 || choice == 2);
         return choice;
     }
 

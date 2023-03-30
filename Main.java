@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Menu menu = new Menu();
-        boolean mainMenu = true;
-
+        Scanner scan = new Scanner(System.in);
+        Menu menu = new Menu(); // instantiates a menu object.
+        boolean mainMenu = true; // Starts the game / activates the main menu
         Hero hero = null; // instantiates a hero object.
         Monster monster = null; // instantiates a monster object.
         Shop shop = null; // instantiates a shop object.
@@ -12,13 +12,16 @@ public class Main {
         
 
         while(mainMenu){
-            int mainMenuChoice = menu.mainMenu(); // Få marcus åsikt om detta, är detta helt onödigt?
+            int mainMenuChoice = menu.mainMenu(); // Prints main menu options
             switch(mainMenuChoice){
                 case 1:
                 int heroMenuChoice = menu.heroMenu();
                     switch(1){
                         case 1:
-                           for (int i = 1; i < 11; i++) { // Set's the amout of total stages
+                        System.out.print("How manny stage's do you want to play?: ");
+                        int setTheStages = scan.nextInt(); // Asks for the amount of total stages
+
+                           for (int i = 1; i < setTheStages; i++) { // Set's the amout of total stages
                                monster = new Monster("Monster",i); // Instantiates an object of the class Monster
                                
                                if(heroMenuChoice == 1){ // Instantiates an object of the class Hero & choosen subclass Warror
@@ -28,16 +31,18 @@ public class Main {
                                   hero = new Warlock("Warlock", i);
                                } 
                                
-                              
-                               shop = new Shop(hero); // Instantiates an object of the class shop and takes the hero object as a parameter
-                               shop.shopMenu(); // Enters the shop menu
-                               if(hero.inventory.contains("Axe")||hero.inventory.contains("Staff")){ // Checks hero inventory if a staff or axe item is present, if it is adds 15 to attack
-                                hero.setAttack(15);
-                               }
+                
+                               if(i%3 == 0){
+                                shop = new Shop(hero); // Instantiates an object of the class shop and takes the hero object as a parameter
+                                shop.shopMenu(); // Enters the shop menu
+                                   if(hero.inventory.contains("Axe")||hero.inventory.contains("Staff")){ // Checks hero inventory if a staff or axe item is present, if it is adds 15 to attack
+                                      hero.setAttack(15);
+                                    }
 
-                               if(hero.inventory.contains("Armor")||hero.inventory.contains("Robe")){ // Checks hero inventory if an Armor or a robe item is present, if it is adds 25 to health
-                                hero.setHp(25);
-                               }
+                                   if(hero.inventory.contains("Armor")||hero.inventory.contains("Robe")){ // Checks hero inventory if an Armor or a robe item is present, if it is adds 25 to health
+                                      hero.setHp(25);
+                                    }
+                                }
 
 
 
@@ -46,9 +51,9 @@ public class Main {
 
 
 
-                               System.out.println("******************* Stage " + i + " *******************"); // Prints the stage your at in the dungeon                
+                               System.out.println("\n******************* Stage " + i + " *******************"); // Prints the stage your at in the dungeon                
                                
-                               if(i== 5 || i == 10){ // Algoritm to check if it is time for a boss fight
+                               if(i%5==0){ // Algoritm to check if it is time for a boss fight
                                     System.out.println("********** BOSS FIGHT **********");
                                     Monster boss = new Boss("Dragon",i); // Instantiates a second object Monster with the subclass boss 
 
@@ -112,24 +117,23 @@ public class Main {
                                    System.out.println("Game Over!\n\n");
                                    break;
                                 }
-                                System.out.println("\n");
+                                 
                                 monster.setLvl(1); // Adds another level at the end of each finished stage for scaling
                                 hero.setLvl(1);  // Adds another level at the end of each finished stage for scaling
-                                hero.setGold(100);
-                                System.out.println("Gold: " + hero.getGold());
+                                hero.setGold(20); // Adds x amout of gold to the hero after each completed stage
+                                System.out.println("Gold: " + hero.getGold()); // Prints the amout of gold you got
                            } // end scope of Stages
                         break; // Belongs to case 1 in heromenu
-                    } // switch heromenu
-
+                    } // end scope of case 1 mainMenuChoice
+                    scan.close();
                 break; // Belongs to case 1 mainmenuchoice
-
 
 
             
                 case 2:
                     mainMenu = false;
                     System.out.println("Game ends, good bye!\n");
-                    break; // Belongs 
+                    break; 
             } // Switch mainMenuChoice
 
         } // While mainMenu scope 
