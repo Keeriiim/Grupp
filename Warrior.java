@@ -24,7 +24,7 @@ public class Warrior extends Hero{
         System.out.println("1. Normal attack\n2. Slashing through my foes");;
         System.out.print("Your choice: ");
         int choice = scan.nextInt();
-        System.out.println("");
+        System.out.println("\n");
 
         switch(choice){ // Attacks the monster depending on the choosen spellattack
             case 1:

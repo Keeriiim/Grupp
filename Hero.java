@@ -2,14 +2,11 @@ import java.util.ArrayList;
 public class Hero {
         private String choosenHero;
         private int lvl;
-        private int xp;
         private int hp;
         private int attack;
         private int defense;
-        private boolean attackPassive = false;
-        private boolean hpPassive = false;
         private boolean alive = true;
-        private int gold;
+        private int gold = 0;
         ArrayList <String> inventory = new ArrayList<>();
     
     
@@ -19,11 +16,9 @@ public class Hero {
             this.choosenHero = choosenHero;
             this.lvl = lvl;
             this.hp = 220 + (lvl * 5);
-            this.attack = 46 + (4*lvl);
+            this.attack = 45;
             this.defense = 20 + (2*lvl);
-            this.xp = 10 * (10*lvl);
             this.alive = true;
-            this.gold = 0;
         }
 
         public String getChoosenHero() {
@@ -49,9 +44,16 @@ public class Hero {
             return attack;
         }
 
+        public void setAttack(int lvl){
+            this.attack += 5;
+        }
        
-        public void setAttack(int attack) {
+        public void setBonusAttack(int attack) {
             this.attack += attack;
+        }
+
+        public int getDefense(){
+            return defense;
         }
     
         public int getHp() {
@@ -63,6 +65,10 @@ public class Hero {
             this.hp += hp;
         }
 
+        public int getLvl(){
+            return lvl;
+        }
+
         public void setLvl(int lvl) {
             this.lvl += lvl;
         }
@@ -72,16 +78,7 @@ public class Hero {
         }
 
         public void setGold(int gold){
-             this.gold = gold;
-        }
-
-        public boolean getAttackPassive(){
-            return attackPassive;
-        }
-
-        public void setAttackPassive(){
-            this.attackPassive = true;
-        
+             this.gold += gold;
         }
 
        
@@ -95,11 +92,7 @@ public class Hero {
             return "";
         }
 
-        @Override
-        public String toString() {
-            return getChoosenHero()+":\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
-        }
-
+        
         
     
         

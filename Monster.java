@@ -6,7 +6,6 @@ public class Monster{
     private int hp;
     private int attack;
     private int defense;
-    private int xp;
     private boolean alive;
     Random rand = new Random();
 
@@ -20,7 +19,6 @@ public class Monster{
         this.hp = 15 + (lvl * 14);
         this.attack = 25 + (2*lvl);
         this.defense = 2 + (2*lvl);
-        this.xp = 10 * (10*lvl);
         this.alive = true;
     }
 
@@ -103,23 +101,6 @@ public class Monster{
 
 
     /**
-     * @return the xp
-     */
-    public int getXp() {
-        return xp;
-    }
-
-
-
-    /**
-     * @param xp the xp to set
-     */
-    public void setXp(int xp) {
-        this.xp += xp;
-    }
-
-
-    /**
      * @return the alive
      */
     public boolean isAlive() {
@@ -135,9 +116,6 @@ public class Monster{
         this.alive = alive;
     }
 
-
-
-    
 
 
 
@@ -174,7 +152,5 @@ public class Monster{
     }
 
 
-    public String toString(){ // Values to be printed every level and every round to update
-        return creature + ":\nlvl = " + lvl + "\nhp = " + hp + "\nAttack = " + attack + "\ndefense = " + defense + "\n";
-    }
+
 }

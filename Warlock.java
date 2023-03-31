@@ -25,7 +25,7 @@ class Warlock extends Hero {
         System.out.println("1. Normal attack\n2. Deathbolt");;
         System.out.print("Your choice: ");
         int choice = scan.nextInt();
-        System.out.println("");
+        System.out.println("\n");
 
         switch(choice){ // Attacks the monster depending on the choosen spellattack
             case 1:
